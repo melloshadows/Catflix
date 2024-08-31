@@ -18,13 +18,14 @@ function Got(){
     let rateloaded = useRef(false)
     let control = useRef(false)
     let [ratingsLoading, setRatingsLoading] = useState(true);
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
 
 
 
     async function Api() {
         setloading("flex")
         control.current = true
-        const url = `https://streaming-availability.p.rapidapi.com/shows/search/title?country=us&title=${searched}&series_granularity=show&output_language=en&order_direction=desc`;
+        const url = `${proxyUrl}https://streaming-availability.p.rapidapi.com/shows/search/title?country=us&title=${searched}&series_granularity=show&output_language=en&order_direction=desc`;
         const options = {
             method: 'GET',
             headers: {
@@ -53,7 +54,7 @@ function Got(){
 
 
     async function imdb(title) {
-        const url = `https://www.omdbapi.com/?apikey=9f5c937d&t=${title}`;
+        const url = `${proxyUrl}https://www.omdbapi.com/?apikey=9f5c937d&t=${title}`;
         const options = {
             method: 'GET',
         };
@@ -76,7 +77,7 @@ function Got(){
 
 
     async function gettrailer(blank){
-        const url = `https://yt-api.p.rapidapi.com/search?query=${blank}`;
+        const url = `${proxyUrl}https://yt-api.p.rapidapi.com/search?query=${blank}`;
         const options = {
             method: 'GET',
             headers: {
