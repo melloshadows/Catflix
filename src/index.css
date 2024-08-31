@@ -263,8 +263,8 @@ body{
 }
 .info p .rotten{
   padding: 0 10px 0 25px;
-  width: 70px;
-  height: 70px;
+  width: 45px;
+  height: 45px;
   object-fit: contain;
   transition: all 0.4s;
 }
@@ -307,12 +307,12 @@ body{
   -ms-transition: all 0.4s;
   -o-transition: all 0.4s;
   background-color: #3a3a3a;
-  padding: 12px 0;
-  border-radius: 20px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  -ms-border-radius: 20px;
-  -o-border-radius: 20px;
+  padding: 0 12px;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
 }
  .trailer-container:hover{
   transform: scale(1.05);

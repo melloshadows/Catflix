@@ -17,6 +17,7 @@ function Got(){
     let load = useRef(null)
     let rateloaded = useRef(false)
     let control = useRef(false)
+    let [ratingsLoading, setRatingsLoading] = useState(true);
 
 
 
@@ -52,7 +53,7 @@ function Got(){
 
 
     async function imdb(title) {
-        const url = `http://www.omdbapi.com/?apikey=9f5c937d&t=${title}`;
+        const url = `https://www.omdbapi.com/?apikey=9f5c937d&t=${title}`;
         const options = {
             method: 'GET',
         };
@@ -127,6 +128,7 @@ function Got(){
         rateloaded.current = true
         console.log(newRatings)
         setratings(newRatings);
+        setRatingsLoading(true)
     }
 
     
@@ -162,9 +164,11 @@ function Got(){
         });
     
         Promise.all(imagePromises).then(() => {
+            if (ratingsLoading) {
                 setloading("none");
                 document.body.style.overflowY = "visible";
                 shown.current.style.display = "flex";
+            }
         });
     }
 
@@ -173,6 +177,7 @@ function Got(){
             alert("enter a movie")
         }
         else{
+            setRatingsLoading(false)
             rateloaded.current = false
             setsearched(input.current.value)
             document.body.style.overflowY = "hidden"
