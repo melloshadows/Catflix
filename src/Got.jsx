@@ -180,6 +180,7 @@ function Got(){
         else{
             setRatingsLoading(false)
             rateloaded.current = false
+            shown.current.style.display = "none"
             setsearched(input.current.value)
             document.body.style.overflow = "hidden"
         }

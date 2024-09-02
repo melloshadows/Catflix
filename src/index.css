@@ -25,7 +25,6 @@ body{
   color: red;
   text-align: center;
   margin-left: 10px;
-  font-family: "Playfair Display", serif;
 }
 .logo h1,img{
   display: inline-block;
@@ -84,7 +83,6 @@ body{
   max-width:400px;
   flex-grow: 1;
   text-align: center;
-  font-family: "Playfair Display", serif;
 }
 
 .test{
@@ -205,10 +203,6 @@ body{
 .info p strong {
   color: #ff6f61;
 }
-
-/* .info p:last-child {
-  margin-bottom: 0;
-} */
 
 .info p .streaming-service {
   width: 90px;
@@ -339,11 +333,6 @@ body{
   h3{
     font-size: 15px;
   }
-  /* .logo img {
-    height: 5vmax;
-    width: 5vmax;
-  } */
-
   .logo h1 {
     font-size: 3vmax;
   }
@@ -368,7 +357,6 @@ body{
 
   .photos {
     width: 35vmax;
-    /* max-width: 30vmax; */
   }
 
   .info p {
@@ -405,7 +393,7 @@ body{
   }
 
   .logo h1 {
-    font-size: 2vmax;
+    font-size: 30px;
   }
 
   .search {
