@@ -394,10 +394,14 @@ body{
     margin-bottom: 5vmax;
   }
 
-  /* .logo img {
-    height: 5vmax;
-    width: 5vmax;
-  } */
+  .sq1,.sq4{
+    height: 30px;
+    width: 30px;
+  }
+  .sq2,.sq3{
+    height: 25px;
+    width: 25px;
+  }
 
   .logo h1 {
     font-size: 2vmax;
