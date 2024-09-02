@@ -455,6 +455,9 @@ body{
   .trailer-container h3{
     font-size: 15px;
   }
+  .trailer-container{
+    margin-top: 20px;
+  }
   .play-icon {
     border-left: 15px solid white;
     border-top: 8px solid transparent;
