@@ -417,12 +417,11 @@ body{
 
   .search button {
     padding: 1.3vmax 2.3vmax;
-    font-size: 10px;
-    /* width: 100%; */
+    font-size: 15px;
   }
 
   .info h1 {
-    font-size: 2vmax;
+    font-size: 17px;
   }
   .rotten{
     margin-left: -10px;
@@ -433,19 +432,42 @@ body{
     justify-content: center;
     align-items: center;
   }
-  .rottenrating p,.imdbrating p{
+
+  .imdbrating p{
     margin-top: -10px;
   }
+  .rottenrating{
+    margin-top: 10px;
+  }
+
+  .info p .rotten{
+    width: 35px;
+    height: 35px;
+  }
+  .info p .imdb{
+    width: 55px;
+    height: 55px;
+  }
+  .trailer-container h3{
+    font-size: 15px;
+  }
+  .play-icon {
+    border-left: 15px solid white;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+  }
+
   .shown {
+    gap: 10px;
     max-width: 500px;
   }
   .photos {
-    /* width: 100%; */
-    max-width: 200px;
+    margin-bottom: 7px;
+    width: 45vmin;
   }
 
   .info p {
-    font-size: 1.5vmax;
+    font-size: 14px;
   }
 
   .info p .streaming-service {
@@ -458,11 +480,3 @@ body{
     max-height: 100px;
   }
 }
-
-/* .photos:hover {
-  transform: scale(1.05);
-  -webkit-transform: scale(1.05);
-  -moz-transform: scale(1.05);
-  -ms-transform: scale(1.05);
-  -o-transform: scale(1.05);
-} */

@@ -305,17 +305,17 @@ function Got(){
                             </div>
 
                             <p className='rating'><strong>Rate:   </strong>
-                            <div className='imdbrating'>
-                                <img className='imdb' src={imdblogo} onClick={(e)=>goToImdb(e)} alt = {result?.imdbId} />  
-                                <p>{ratings[result?.title]?.rating || result.imdbrating || "Loading..."}</p>
-                            </div>
-                              
-                            <div className='rottenrating'>
-                                {ratings[result?.title]?.rottenrating || result.rottenrating? 
-                                     <img src={rottenlogo} className='rotten' alt={result?.title} onClick={(e)=>goToRottenTomatoes(e,result)} /> 
-                                : null}
-                                <p> {ratings[result?.title]?.rottenrating || result.rottenrating} </p>
-                            </div>
+                                <div className='imdbrating'>
+                                    <img className='imdb' src={imdblogo} onClick={(e)=>goToImdb(e)} alt = {result?.imdbId} />  
+                                    <p>{ratings[result?.title]?.rating || result.imdbrating || "Loading..."}</p>
+                                </div>
+                                
+                                <div className='rottenrating'>
+                                    {ratings[result?.title]?.rottenrating || result.rottenrating ? 
+                                        <img src={rottenlogo} className='rotten' alt={result?.title} onClick={(e)=>goToRottenTomatoes(e,result)} /> 
+                                    : null}
+                                    <p> {ratings[result?.title]?.rottenrating || result.rottenrating} </p>
+                                </div>
                             </p>
                             
                             <p><strong>Runtime: </strong> 
