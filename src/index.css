@@ -393,7 +393,7 @@ body{
   }
 
   .logo h1 {
-    font-size: 30px;
+    font-size: 2vmax;
   }
 
   .search {
@@ -417,7 +417,7 @@ body{
     font-size: 17px;
   }
   .rotten{
-    margin-left: -10px;
+    margin-left: -12px;
   }
   .rottenrating,.imdbrating{
     display: flex;
