@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/movies');
+
 body{
   background-color: black;
   overflow-x:hidden;
@@ -23,6 +25,7 @@ body{
   color: red;
   text-align: center;
   margin-left: 10px;
+  font-family: "Playfair Display", serif;
 }
 .logo h1,img{
   display: inline-block;
@@ -81,12 +84,13 @@ body{
   max-width:400px;
   flex-grow: 1;
   text-align: center;
+  font-family: "Playfair Display", serif;
 }
 
 .test{
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 90vh;
   gap: 5px;
   flex-direction: column;
   transition: all 0.4s;
@@ -171,9 +175,6 @@ body{
 
 .photos:hover {
   transform: translateY(-5px);
-  /*filter: drop-shadow(0 0 5px white);
-  -webkit-filter: n;
-  */
 }
 
 

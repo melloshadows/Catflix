@@ -109,7 +109,6 @@ function Got(){
     
     useEffect(()=>{
         window.addEventListener("keydown", enter)
-        // document.title = "Catflix"
        
         return() =>{
             window.removeEventListener("keydown", enter)
@@ -121,7 +120,8 @@ function Got(){
         let newRatings = {};
         for (const movie of movies) {
             const title = movie.title;
-            const details = await imdb(title.replaceAll(" ", "+").replaceAll(":",""));
+            let cut = title.replace(/[-:]/g, '').replace(/\s+/g, '+')
+            const details = await imdb(cut);
             newRatings[title] = details;
         }
         rateloaded.current = true
@@ -154,7 +154,6 @@ function Got(){
     
 
     function preload() {
-        // setloading("flex");
         const imagePromises = apiimage.map((result, index) => {
             return new Promise((resolve, reject) => {
                 const img = new Image();
@@ -168,7 +167,7 @@ function Got(){
         Promise.all(imagePromises).then(() => {
             if (ratingsLoading) {
                 setloading("none");
-                document.body.style.overflowY = "visible";
+                document.body.style.overflow = "visible";
                 shown.current.style.display = "flex";
             }
         });
@@ -182,7 +181,7 @@ function Got(){
             setRatingsLoading(false)
             rateloaded.current = false
             setsearched(input.current.value)
-            document.body.style.overflowY = "hidden"
+            document.body.style.overflow = "hidden"
         }
     }
         
