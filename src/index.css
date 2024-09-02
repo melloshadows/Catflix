@@ -453,11 +453,17 @@ body{
     height: 55px;
   }
   .trailer-container h3{
-    font-size: 15px;
+    font-size: 1.4vmax;
   }
   .trailer-container{
     margin-top: 20px;
-  }
+    padding: 0 20px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
   .play-icon {
     border-left: 15px solid white;
     border-top: 8px solid transparent;

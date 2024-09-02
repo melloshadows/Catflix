@@ -349,7 +349,7 @@ function Got(){
                             }
                            
                            {result?.imdbrating ? (
-                                <p><strong>Available on: &nbsp;</strong> 
+                                <p className='ava'><strong>Available on: &nbsp;</strong> 
                                     <img className='streaming-service' 
                                         src={result?.streamingOptions} />            
                                 </p>
