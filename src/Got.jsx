@@ -52,7 +52,7 @@ function Got(){
 
 
     async function imdb(title) {
-        const url = `http://www.omdbapi.com/?apikey=9f5c937d&t=${title}`;
+        const url = `https://www.omdbapi.com/?apikey=9f5c937d&t=${title}`;
         const options = {
             method: 'GET',
         };
