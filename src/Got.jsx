@@ -154,6 +154,7 @@ function Got(){
     
 
     function preload() {
+        document.body.style.overflow = "hidden"
         const imagePromises = apiimage.map((result, index) => {
             return new Promise((resolve, reject) => {
                 const img = new Image();
@@ -182,7 +183,6 @@ function Got(){
             rateloaded.current = false
             shown.current.style.display = "none"
             setsearched(input.current.value)
-            document.body.style.overflow = "hidden"
         }
     }
         
