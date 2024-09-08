@@ -161,7 +161,7 @@ body{
   border-radius: 10px;
   overflow: hidden;
   /* width: 350px; */
-  width: 48vmin;
+  max-width: 23vmax;
   min-height: 600px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s;
