@@ -52,8 +52,9 @@ function Got(){
     }   
 
 
-    async function imdb(title,year) {
-        const url = `https://www.omdbapi.com/?apikey=9f5c937d&t=${title}&y=${year}`;
+    async function imdb(ID) {
+        // const url = `https://www.omdbapi.com/?apikey=9f5c937d&t=${title}&y=${year}`;
+        const url = `http://www.omdbapi.com/?apikey=9f5c937d&i=${ID}`
         const options = {
             method: 'GET',
         };
@@ -120,11 +121,9 @@ function Got(){
     async function fetchRatings(movies) {
         let newRatings = {};
         for (const movie of movies) {
-            const title = movie.title;
-            const year = assignYear(movie)
-            let cut = title.replace(/[-:]/g, '').replace(/\s+/g, '+')
-            const details = await imdb(cut,year);
-            newRatings[title] = details;
+            let getID = movie.imdbId
+            const details = await imdb(getID);
+            newRatings[getID] = details;
         }
         rateloaded.current = true
         console.log(newRatings)
@@ -312,14 +311,14 @@ function Got(){
                             <p className='rating'><strong>Rate:   </strong>
                                 <div className='imdbrating'>
                                     <img className='imdb' src={imdblogo} onClick={(e)=>goToImdb(e)} alt = {result?.imdbId} />  
-                                    <p>{ratings[result?.title]?.rating || result.imdbrating || "Loading..."}</p>
+                                    <p>{ratings[result?.imdbId]?.rating || result.imdbrating || "Loading..."}</p>
                                 </div>
                                 
                                 <div className='rottenrating'>
-                                    {ratings[result?.title]?.rottenrating || result.rottenrating ? 
+                                    {ratings[result?.imdbId]?.rottenrating || result.rottenrating ? 
                                         <img src={rottenlogo} className='rotten' alt={result?.title} onClick={(e)=>goToRottenTomatoes(e,result)} /> 
                                     : null}
-                                    <p> {ratings[result?.title]?.rottenrating || result.rottenrating} </p>
+                                    <p> {ratings[result?.imdbId]?.rottenrating || result.rottenrating} </p>
                                 </div>
                             </p>
                             
@@ -336,7 +335,8 @@ function Got(){
                             
                             <p><strong>Cast: </strong> {result.stars ? result.stars : `${result?.cast[0]}, ${result?.cast[1]}, ${result?.cast[2]}`}</p>
                             
-                            <p><strong>Directors: </strong>  {result?.directors ? result?.directors : result?.creators}</p>
+                            {result.imdbrating ? <p><strong>Directors: </strong>  {result?.directors ? result?.directors : result?.creators}</p> : 
+                            <p><strong>Directors: </strong> {result?.directors ? result?.directors[0] : result?.creators[0]}</p>}
                             
                             {result?.streamingOptions?.us ? (
                                 <p><strong>Available on: &nbsp;</strong> {result?.streamingOptions?.us.length > 0 ?
@@ -359,7 +359,7 @@ function Got(){
                                 </p>
                            ) : null}
                             
-                            <p className='overview'><strong>Overview:</strong> {ratings[result?.title]?.plot || result.plot}</p>
+                            <p className='overview'><strong>Overview:</strong> {ratings[result?.imdbId]?.plot || result.plot}</p>
 
                         </div>
                 </div>
