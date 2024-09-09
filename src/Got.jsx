@@ -186,7 +186,7 @@ function Got(){
             setsearched(input.current.value);
             document.body.style.overflow = "hidden";
             nowMovies.current.style.display = "none"
-            nowMovies.current.textContent = "Search results";
+            nowMovies.current.textContent = "Search results:";
         }
     }
         
