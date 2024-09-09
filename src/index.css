@@ -2,8 +2,13 @@
 
 body{
   background-color: black;
-  overflow-x:hidden;
+  overflow:hidden;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.title{
+  margin-top: 100px;
+  color: white;
+  display: none;
 }
 .logo{
   position: absolute;
@@ -78,9 +83,9 @@ body{
   transform: scale(0.98); 
 }
 
-
 .info h1{
-  max-width:400px;
+  font-size: 2vmax;
+  max-width:300px;
   flex-grow: 1;
   text-align: center;
 }
@@ -125,19 +130,19 @@ body{
 
 @keyframes rotate {
   0%{
-    transform: rotate(0deg)  ;
-    -webkit-transform: rotate(0deg)  ;
-    -moz-transform: rotate(0deg)  ;
-    -ms-transform: rotate(0deg)  ;
-    -o-transform: rotate(0deg)  ;
-}
-100%{
-  transform: rotate(360deg);
-  -webkit-transform: rotate(360deg);
-  -moz-transform: rotate(360deg);
-  -ms-transform: rotate(360deg);
-  -o-transform: rotate(360deg);
-}
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+  }
 }
 
 .shown {
@@ -146,7 +151,7 @@ body{
   align-items: flex-start;
   flex-direction: row;
   max-width: 2000px;
-  margin-top: 100px;
+  margin-top: 50px;
   color: white;
   flex-wrap: wrap;
   gap: 20px;
@@ -160,8 +165,7 @@ body{
   background-color: #1c1c1c;
   border-radius: 10px;
   overflow: hidden;
-  /* width: 350px; */
-  max-width: 23vmax;
+  width: 23vmax;
   min-height: 600px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s;
@@ -174,7 +178,6 @@ body{
 .photos:hover {
   transform: translateY(-5px);
 }
-
 
 .photos img {
   width: 100%;
@@ -196,8 +199,7 @@ body{
 
 .info p {
   margin: 5px 0;
-  font-size: 20px;
-  
+  font-size: 1.2vmax; 
 }
 
 .info p strong {
@@ -205,15 +207,11 @@ body{
 }
 
 .info p .streaming-service {
-  width: 90px;
-  height: 90px;
+  width: 6.5vmax;
+  height: 6.5vmax;
   object-fit: contain;
   cursor: pointer;
   transition: all 0.4s;
-}
-.info p,.streaming-service{
-  vertical-align: middle;
-
 }
 
 .info p .streaming-service:hover {
@@ -251,17 +249,21 @@ body{
 }
 .info p .imdb{
   padding: 0 3px 0 0px;
-  width: 60px;
-  height: 60px;
+  width: 5vmax;
+  height: 5vmax;
   object-fit: contain;
   transition: all 0.4s;
 }
 .info p .rotten{
-  padding: 0 10px 0 25px;
-  width: 45px;
-  height: 45px;
+  padding: 0 6px 0 1.2vmax;
+  width: 3.5vmax;
+  height: 3.5vmax;
   object-fit: contain;
   transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
 }
 .overview {
   padding: 10px;
@@ -283,12 +285,15 @@ body{
 .play-icon {
   width: 0; 
   height: 0; 
-  border-left: 20px solid white;
-  border-top: 12px solid transparent;
-  border-bottom: 12px solid transparent;
+  border-left: 1.6vmax solid white;
+  border-top: 1vmax solid transparent;
+  border-bottom: 1vmax solid transparent;
   margin-right: 5px;
 }
 
+.trailer-container h3{
+  font-size: 1.3vmax;
+}
  .trailer-container{
   margin-top: 30px;
   display: flex;
@@ -302,7 +307,7 @@ body{
   -ms-transition: all 0.4s;
   -o-transition: all 0.4s;
   background-color: #3a3a3a;
-  padding: 0 12px;
+  padding: 0 1.2vmax;
   border-radius: 30px;
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
@@ -330,6 +335,14 @@ body{
     left: 2%;
   }
 
+  .info p .imdb{
+    width: 50px;
+    height: 50px;
+  }
+  .info p .rotten{
+    width: 35px;
+    height: 35px;
+  }
   h3{
     font-size: 15px;
   }

@@ -14,6 +14,7 @@ function Got(){
     let [ratings, setratings] = useState({});
     let input = useRef(null)
     let shown = useRef(null)
+    let nowMovies = useRef(null)
     let load = useRef(null)
     let rateloaded = useRef(false)
     let control = useRef(false)
@@ -51,8 +52,8 @@ function Got(){
     }   
 
 
-    async function imdb(title) {
-        const url = `https://www.omdbapi.com/?apikey=9f5c937d&t=${title}`;
+    async function imdb(title,year) {
+        const url = `https://www.omdbapi.com/?apikey=9f5c937d&t=${title}&y=${year}`;
         const options = {
             method: 'GET',
         };
@@ -120,8 +121,9 @@ function Got(){
         let newRatings = {};
         for (const movie of movies) {
             const title = movie.title;
+            const year = assignYear(movie)
             let cut = title.replace(/[-:]/g, '').replace(/\s+/g, '+')
-            const details = await imdb(cut);
+            const details = await imdb(cut,year);
             newRatings[title] = details;
         }
         rateloaded.current = true
@@ -150,17 +152,15 @@ function Got(){
         window.open(link, "_blank");
 
     }
-
     
 
     function preload() {
-        document.body.style.overflow = "hidden"
         const imagePromises = apiimage.map((result, index) => {
             return new Promise((resolve, reject) => {
                 const img = new Image();
                 img.onload = () => resolve();
                 img.onerror = () => resolve(); 
-                control.current == false ? img.src = newMovies[index].poster :
+                control.current === false ? img.src = newMovies[index].poster :
                 img.src = result?.imageSet?.verticalPoster?.w720;
             });
         });
@@ -170,6 +170,7 @@ function Got(){
                 setloading("none");
                 document.body.style.overflow = "visible";
                 shown.current.style.display = "flex";
+                nowMovies.current.style.display = "block"
             }
         });
     }
@@ -180,9 +181,12 @@ function Got(){
         }
         else{
             setRatingsLoading(false)
-            rateloaded.current = false
-            shown.current.style.display = "none"
-            setsearched(input.current.value)
+            rateloaded.current = false;
+            shown.current.style.display = "none";
+            setsearched(input.current.value);
+            document.body.style.overflow = "hidden";
+            nowMovies.current.style.display = "none"
+            nowMovies.current.textContent = "Search results";
         }
     }
         
@@ -270,10 +274,9 @@ function Got(){
             </div>
                 <br /><br /><br /><br /><br />
             <div className='search'>
-                <input ref={input} type="text" placeholder='type a movie or show'/>
+                <input ref={input} autoFocus type="text" placeholder='Type a movie or show'/>
                 <button onClick={clicked}>search</button>
             </div>
-           
             <div style={{display : loading}} ref={load} className='test'>
                 <div className='row1'>
                     <div className='sq1'></div>
@@ -284,6 +287,7 @@ function Got(){
                     <div className='sq4'></div>
                 </div>    
             </div>
+            <h1 ref={nowMovies} className='title'>Popular movies and shows - 2024</h1>
 
             <div ref={shown} className='shown'>
             {apiimage.map((result)=>(
