@@ -1,11 +1,11 @@
 import { useState, useRef, useEffect } from 'react'
-import './index.css'
+import './catflix.css'
 import cat from './assets/cat2.jpg'
 import newMovies from './newMovies'
 import imdblogo from './assets/Imdb.png'
 import rottenlogo from './assets/rotten.png'
 
-function Got(){
+function Catflix(){
 
 
     let[searched, setsearched] = useState()
@@ -57,7 +57,7 @@ function Got(){
 
 
     async function imdb(ID) {
-        const url = `http://www.omdbapi.com/?apikey=9f5c937d&i=${ID}`
+        const url = `https://www.omdbapi.com/?apikey=9f5c937d&i=${ID}`
         const options = {
             method: 'GET',
         };
@@ -373,4 +373,4 @@ function Got(){
     )
 }
 
-export default Got
+export default Catflix

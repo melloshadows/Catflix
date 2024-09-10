@@ -1,11 +1,11 @@
 import { useEffect } from "react";
-import Got from "./Got"
+import Catflix from "./catflix"
 
 function App() {
 
   return (
     <>
-      <Got/>
+      <Catflix/>
     </>
   )
 }

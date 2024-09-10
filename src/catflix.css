@@ -85,7 +85,6 @@ body{
 
 .info h1{
   font-size: 2vmax;
-  max-width:300px;
   flex-grow: 1;
   text-align: center;
 }
