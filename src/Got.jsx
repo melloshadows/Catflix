@@ -20,6 +20,10 @@ function Got(){
     let control = useRef(false)
     let [ratingsLoading, setRatingsLoading] = useState(true);
 
+    useEffect(() => {
+        document.title = "Catflix";
+      }, []);
+
 
     async function Api() {
         setloading("flex")
@@ -53,7 +57,6 @@ function Got(){
 
 
     async function imdb(ID) {
-        // const url = `https://www.omdbapi.com/?apikey=9f5c937d&t=${title}&y=${year}`;
         const url = `http://www.omdbapi.com/?apikey=9f5c937d&i=${ID}`
         const options = {
             method: 'GET',
